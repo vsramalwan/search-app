@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "orta.vscode-jest",
+    "eamodio.gitlens",
+    "christian-kohler.npm-intellisense",
+    "christian-kohler.path-intellisense",
+    "wayou.vscode-todo-highlight",
+    "usernamehw.errorlens"
+  ]
+}
