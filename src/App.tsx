@@ -3,7 +3,6 @@ import "./App.css";
 
 function App() {
   const [data, setData] = useState([]);
-  // eslint-disable-next-line no-void
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-floating-promises
     fetch("/companies")
