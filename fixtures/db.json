@@ -1,1 +1,22 @@
-{ "companies": ["abc", "xyz"] }
+{
+  "companies": [
+    {
+      "name": "abc",
+      "logo": "http://placekitten.com/g/200/300",
+      "specialities": "plumbing",
+      "city": "Hamburg"
+    },
+    {
+      "name": "xyz",
+      "logo": "http://placekitten.com/g/200/300",
+      "specialities": "Excavation",
+      "city": "Hamburg"
+    },
+    {
+      "name": "pqrs",
+      "logo": "http://placekitten.com/g/200/300",
+      "specialities": "Electrical",
+      "city": "Berlin"
+    }
+  ]
+}

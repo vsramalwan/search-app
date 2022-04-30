@@ -13,7 +13,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>{!data ? "Loading..." : data[1]}</p>
+        {/* @ts-expect-error */}
+        <p>{!data ? "Loading..." : data[0]?.name}</p>
       </header>
     </div>
   );
