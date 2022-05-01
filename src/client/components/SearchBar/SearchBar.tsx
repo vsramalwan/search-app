@@ -9,7 +9,7 @@ export const SearchBar = ({
   onClearResults: VoidFunction;
 }) => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [debouncedTerm, setDebouncedTerm] = useState(searchTerm);
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState(searchTerm);
 
   useEffect(() => {
     if (searchTerm !== "") {
@@ -20,20 +20,20 @@ export const SearchBar = ({
     }
   }, [searchTerm]);
 
-  // update 'term' value after 1 second from the last update of 'debouncedTerm'
+  // update 'searchTerm' value after 1 second from the last update of 'debouncedSearchTerm'
   useEffect(() => {
-    const timer = setTimeout(() => setSearchTerm(debouncedTerm), 1000);
+    const timer = setTimeout(() => setSearchTerm(debouncedSearchTerm), 1000);
     return () => clearTimeout(timer);
-  }, [debouncedTerm]);
+  }, [debouncedSearchTerm]);
 
   return (
     <div className="searchbar">
       <input
         className="searchbar-input"
-        onChange={(e) => setDebouncedTerm(e.target.value)}
+        onChange={(e) => setDebouncedSearchTerm(e.target.value)}
         placeholder="Search companies"
         type="text"
-        value={debouncedTerm}
+        value={debouncedSearchTerm}
       />
     </div>
   );
