@@ -9,7 +9,7 @@ function App() {
 
   const handleSearchSubmit = useCallback(
     async (searchTerm: string) => {
-      const companiesArray = await fetchCompanies(searchTerm.toLowerCase());
+      const companiesArray = await fetchCompanies(searchTerm);
       setCompanies(companiesArray);
     },
     [companies]

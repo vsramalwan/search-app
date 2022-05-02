@@ -3,9 +3,16 @@ import "./Company.css";
 const Company = ({
   company,
 }: {
-  company: { name: string; logo: string; specialities: string; city: string };
+  company: {
+    id: number;
+    name: string;
+    logo: string;
+    specialities: string;
+    city: string;
+  };
 }) => (
   <div className="company-container">
+    <p className="company-name">"{company.id}"</p>
     <p className="company-name">"{company.name}"</p>
     <p className="company-details">
       <span className="highlight"> {company.logo} </span>
