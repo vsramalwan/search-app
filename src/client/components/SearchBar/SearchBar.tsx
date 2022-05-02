@@ -10,17 +10,17 @@ export const SearchBar = ({
 }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState(searchTerm);
-  const [isBulldozerChecked, setIsBulldozerChecked] = useState(false);
-  const [isCompactorChecked, setIsCompactorChecked] = useState(false);
+  const [isBulldozer, setIsBulldozer] = useState(false);
+  const [isCompactor, setIsCompactor] = useState(false);
 
   useEffect(() => {
     if (searchTerm !== "") {
-      onSearchSubmit(searchTerm, isBulldozerChecked, isCompactorChecked);
+      onSearchSubmit(searchTerm, isBulldozer, isCompactor);
     } else {
       // eslint-disable-next-line no-use-before-define
       onClearResults();
     }
-  }, [searchTerm]);
+  }, [searchTerm, isBulldozer, isCompactor]);
 
   // update 'searchTerm' value after 1 second from the last update of 'debouncedSearchTerm'
   useEffect(() => {
@@ -29,11 +29,11 @@ export const SearchBar = ({
   }, [debouncedSearchTerm]);
 
   const handleOnBulldozerChange = () => {
-    setIsBulldozerChecked(!isBulldozerChecked);
+    setIsBulldozer(!isBulldozer);
   };
 
   const handleOnCompactorChange = () => {
-    setIsCompactorChecked(!isCompactorChecked);
+    setIsCompactor(!isCompactor);
   };
 
   return (
@@ -47,7 +47,7 @@ export const SearchBar = ({
       />
       <div className="specialities">
         <input
-          checked={isBulldozerChecked}
+          checked={isBulldozer}
           id="bulldozer"
           name="bulldozer"
           onChange={handleOnBulldozerChange}
@@ -56,7 +56,7 @@ export const SearchBar = ({
         />
         Bulldozer
         <input
-          checked={isCompactorChecked}
+          checked={isCompactor}
           id="compactor"
           name="compactor"
           onChange={handleOnCompactorChange}

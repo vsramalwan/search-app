@@ -30,9 +30,11 @@ function App() {
       <header className="App-header">
         <SearchBar
           // eslint-disable-next-line @typescript-eslint/no-misused-promises
-          onSearchSubmit={(searchTerm: string, isBulldozer, isCompactor) =>
-            handleSearchSubmit(searchTerm, isBulldozer, isCompactor)
-          }
+          onSearchSubmit={(
+            searchTerm: string,
+            isBulldozer: boolean,
+            isCompactor: boolean
+          ) => handleSearchSubmit(searchTerm, isBulldozer, isCompactor)}
           onClearResults={handleClearResults}
         />
         <div className="main-content">{renderedCompanies}</div>
