@@ -1,0 +1,19 @@
+.company-container {
+  border-bottom: 1px solid grey;
+  padding-top: 2%;
+}
+
+.company-name {
+  font-style: italic;
+  font-size: 1.2em;
+}
+
+.company-details {
+  color: lightgray;
+  font-size: 0.9em;
+}
+
+.highlight {
+  font-weight: bold;
+  color: aquamarine;
+}
