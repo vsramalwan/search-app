@@ -8,8 +8,12 @@ function App() {
   const [companies, setCompanies] = useState([]);
 
   const handleSearchSubmit = useCallback(
-    async (searchTerm: string) => {
-      const companiesArray = await fetchCompanies(searchTerm);
+    async (searchTerm: string, isBulldozer: boolean, isCompactor: boolean) => {
+      const companiesArray = await fetchCompanies(
+        searchTerm,
+        isBulldozer,
+        isCompactor
+      );
       setCompanies(companiesArray);
     },
     [companies]
@@ -26,8 +30,8 @@ function App() {
       <header className="App-header">
         <SearchBar
           // eslint-disable-next-line @typescript-eslint/no-misused-promises
-          onSearchSubmit={(searchTerm: string) =>
-            handleSearchSubmit(searchTerm)
+          onSearchSubmit={(searchTerm: string, isBulldozer, isCompactor) =>
+            handleSearchSubmit(searchTerm, isBulldozer, isCompactor)
           }
           onClearResults={handleClearResults}
         />
