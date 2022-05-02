@@ -1,14 +1,14 @@
-.quote-container {
+.company-container {
   border-bottom: 1px solid grey;
   padding-top: 2%;
 }
 
-.quote {
+.company-name {
   font-style: italic;
   font-size: 1.2em;
 }
 
-.quote-author {
+.company-details {
   color: lightgray;
   font-size: 0.9em;
 }
