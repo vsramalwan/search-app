@@ -6,13 +6,21 @@ import { fetchCompanies } from "./server/search";
 
 function App() {
   const [companies, setCompanies] = useState([]);
+  const [bulldozer, setBulldozer] = useState(false);
+  const [compactor, setCompactor] = useState(false);
 
   const handleSearchSubmit = useCallback(
-    async (searchTerm: string) => {
-      const companiesArray = await fetchCompanies(searchTerm.toLowerCase());
+    async (searchTerm: string, isBulldozer: boolean, isCompactor: boolean) => {
+      const companiesArray = await fetchCompanies(
+        searchTerm,
+        isBulldozer,
+        isCompactor
+      );
       setCompanies(companiesArray);
+      setBulldozer(isBulldozer);
+      setCompactor(isCompactor);
     },
-    [companies]
+    [companies, bulldozer, compactor]
   );
 
   const handleClearResults = useCallback(() => setCompanies([]), [companies]);
@@ -26,9 +34,11 @@ function App() {
       <header className="App-header">
         <SearchBar
           // eslint-disable-next-line @typescript-eslint/no-misused-promises
-          onSearchSubmit={(searchTerm: string) =>
-            handleSearchSubmit(searchTerm)
-          }
+          onSearchSubmit={(
+            searchTerm: string,
+            isBulldozer: boolean,
+            isCompactor: boolean
+          ) => handleSearchSubmit(searchTerm, isBulldozer, isCompactor)}
           onClearResults={handleClearResults}
         />
         <div className="main-content">{renderedCompanies}</div>
