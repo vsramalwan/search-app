@@ -11,7 +11,6 @@ function App() {
 
   const handleSearchSubmit = useCallback(
     async (searchTerm: string, isBulldozer: boolean, isCompactor: boolean) => {
-      // eslint-disable-next-line @typescript-eslint/await-thenable
       const companiesArray = await fetchCompanies(
         searchTerm,
         isBulldozer,
