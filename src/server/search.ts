@@ -6,7 +6,7 @@ export const fetchCompanies = async (
   let res;
   if (isBulldozer && isCompactor) {
     res = await fetch(
-      `http://localhost:8001/companies?name=${name}&specialities=Bulldozer&specialities=Compactor`
+      `http://localhost:8001/companies?name=${name}&specialities=Bulldozer,Compactor`
     );
   } else if (!isBulldozer && isCompactor) {
     res = await fetch(
