@@ -17,11 +17,11 @@ test("should renders Checkboxes and SearchBar", () => {
 test("should be able to search", async () => {
   render(<App />);
   fireEvent.click(screen.getByRole("textbox"));
-  expect(screen.getByRole("textbox")).toHaveTextContent("");
+  expect(screen.getByRole("textbox")).toHaveValue("");
 
   const user = userEvent.setup();
-  await user.type(screen.getByRole("textbox"), "new value");
+  await user.type(screen.getByRole("textbox"), "Digitube");
   await waitFor(() => {
-    expect(screen.getByRole("textbox")).toHaveValue("new value");
+    expect(screen.getByRole("textbox")).toHaveValue("Digitube");
   });
 });
