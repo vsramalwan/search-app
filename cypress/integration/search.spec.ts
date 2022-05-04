@@ -29,9 +29,9 @@ describe("should be able to search a company", () => {
     cy.findByText("Don Tan").should("be.visible");
   });
 
-  it("should not display any result for wrong search", () => {
+  it("should not display any result for incorrect search", () => {
     cy.findByTestId("searchbar-input").should("exist");
-    cy.findByTestId("searchbar-input").type("fake company");
+    cy.findByTestId("searchbar-input").type("Ditigube");
     cy.findByText("Rognedino").should("not.exist");
     cy.findByText("Shangtian").should("not.exist");
     cy.findByText("Don Tan").should("not.exist");
