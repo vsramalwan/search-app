@@ -23,6 +23,6 @@ jobs:
           node-version: 14
       - name: Run Test
         run: |
-          yarn install
+          yarn install --frozen-lockfile
           yarn test --watchAll=false
           yarn cypress run
