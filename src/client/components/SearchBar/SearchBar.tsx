@@ -40,6 +40,7 @@ export const SearchBar = ({
     <div className="searchbar">
       <input
         className="searchbar-input"
+        id="searchbar-input"
         onChange={(e) => setDebouncedSearchTerm(e.target.value)}
         placeholder="Search companies"
         type="text"
