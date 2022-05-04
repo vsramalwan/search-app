@@ -1,4 +1,4 @@
-name: lint
+name: test
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
       - synchronize
 
 jobs:
-  lint:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -20,7 +20,10 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 14
-      - name: Run Linter
-        run: |
-          yarn install
-          yarn lint
+      - run: |
+          yarn install --frozen-lockfile
+          yarn start &
+      - run: |
+          yarn test --watchAll=false
+      - run: |
+          yarn cypress run

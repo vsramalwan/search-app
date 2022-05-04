@@ -40,6 +40,8 @@ export const SearchBar = ({
     <div className="searchbar">
       <input
         className="searchbar-input"
+        data-testid="searchbar-input"
+        id="searchbar-input"
         onChange={(e) => setDebouncedSearchTerm(e.target.value)}
         placeholder="Search companies"
         type="text"
@@ -48,6 +50,7 @@ export const SearchBar = ({
       <div className="specialities">
         <input
           checked={isBulldozer}
+          data-testid="bulldozer"
           id="bulldozer"
           name="bulldozer"
           onChange={handleOnBulldozerChange}
@@ -57,6 +60,7 @@ export const SearchBar = ({
         Bulldozer
         <input
           checked={isCompactor}
+          data-testid="compactor"
           id="compactor"
           name="compactor"
           onChange={handleOnCompactorChange}

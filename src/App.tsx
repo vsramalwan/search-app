@@ -25,9 +25,9 @@ function App() {
 
   const handleClearResults = useCallback(() => setCompanies([]), [companies]);
 
-  const renderedCompanies = companies.map((company, i) => (
-    <Company company={company} key={i} />
-  ));
+  const renderedCompanies =
+    companies.length !== 0 &&
+    companies.map((company, i) => <Company company={company} key={i} />);
 
   return (
     <div className="App">
