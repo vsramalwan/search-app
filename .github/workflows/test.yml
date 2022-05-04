@@ -20,9 +20,10 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 14
-      - name: Run Test
-        run: |
+      - run: |
           yarn install --frozen-lockfile
-          yarn start
+          yarn start &
+      - run: |
           yarn test --watchAll=false
+      - run: |
           yarn cypress run
