@@ -23,5 +23,6 @@ jobs:
       - name: Run Test
         run: |
           yarn install --frozen-lockfile
+          yarn start
           yarn test --watchAll=false
           yarn cypress run
