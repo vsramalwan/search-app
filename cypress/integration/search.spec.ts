@@ -1,7 +1,3 @@
-// Start writing your Cypress tests below!
-// If you're unfamiliar with how Cypress works,
-// check out the link below and learn how to write your first test:
-// https://on.cypress.io/writing-first-test
 describe("should be able to search a company", () => {
   beforeEach(() => {
     cy.visit("http://localhost:8000/");
@@ -35,5 +31,6 @@ describe("should be able to search a company", () => {
     cy.findByText("Rognedino").should("not.exist");
     cy.findByText("Shangtian").should("not.exist");
     cy.findByText("Don Tan").should("not.exist");
+    cy.findByText("no results! try Digitube").should("be.visible");
   });
 });

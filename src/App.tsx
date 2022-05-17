@@ -8,6 +8,8 @@ function App() {
   const [companies, setCompanies] = useState([]);
   const [bulldozer, setBulldozer] = useState(false);
   const [compactor, setCompactor] = useState(false);
+  const [term, setTerm] = useState("");
+  const [pristine, setPristine] = useState(true);
 
   const handleSearchSubmit = useCallback(
     async (searchTerm: string, isBulldozer: boolean, isCompactor: boolean) => {
@@ -19,15 +21,21 @@ function App() {
       setCompanies(companiesArray);
       setBulldozer(isBulldozer);
       setCompactor(isCompactor);
+      setPristine(false);
+      setTerm(searchTerm);
     },
     [companies, bulldozer, compactor]
   );
 
-  const handleClearResults = useCallback(() => setCompanies([]), [companies]);
+  const handleClearResults = useCallback(() => {
+    setCompanies([]);
+    setPristine(true);
+    // setTerm("");
+  }, [companies, term]);
 
-  const renderedCompanies =
-    companies.length !== 0 &&
-    companies.map((company, i) => <Company company={company} key={i} />);
+  const renderedCompanies = companies.map((company, i) => (
+    <Company company={company} key={i} />
+  ));
 
   return (
     <div className="App">
@@ -41,7 +49,12 @@ function App() {
           ) => handleSearchSubmit(searchTerm, isBulldozer, isCompactor)}
           onClearResults={handleClearResults}
         />
-        <div className="main-content">{renderedCompanies}</div>
+        {companies.length !== 0 && (
+          <div className="main-content">{renderedCompanies}</div>
+        )}
+        {companies.length === 0 && !pristine && (
+          <div>{"no results! try Digitube"}</div>
+        )}
       </header>
     </div>
   );

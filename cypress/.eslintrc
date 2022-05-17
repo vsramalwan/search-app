@@ -1,0 +1,9 @@
+{
+    "extends": ["plugin:cypress/recommended"],
+    "rules": {
+        "@typescript-eslint/no-unsafe-member-access": "off",
+        "@typescript-eslint/no-unsafe-call": "off",
+        "no-return-assign": "off",
+        "consistent-return": "off"
+    }
+}

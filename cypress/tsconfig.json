@@ -1,0 +1,9 @@
+// NOTE: Cypress needs it's own tsconfig https://docs.cypress.io/guides/tooling/typescript-support#Configure-tsconfig-json
+{
+  "extends": "./../tsconfig.json",
+  "compilerOptions": {
+    "types": ["cypress", "cypress-wait-until", "@testing-library/cypress"],
+    "noImplicitReturns": false
+  },
+  "include": ["./integration/**/*.spec.ts"]
+}
