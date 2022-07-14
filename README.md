@@ -6,4 +6,4 @@
 3. `yarn build`
 
 ## Demo
-![here](./.search-app.gif)
+![here](./search-app.gif)
